@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-03-19T10:51:16.909Z",
+  "syntaxErrors": {
+    "passed": 102,
+    "failed": 0,
+    "errors": []
+  },
+  "exports": {
+    "passed": 3,
+    "failed": 0,
+    "errors": []
+  },
+  "imports": {
+    "passed": 0,
+    "failed": 0,
+    "errors": []
+  },
+  "components": {
+    "passed": 67,
+    "failed": 0,
+    "errors": []
+  }
+}

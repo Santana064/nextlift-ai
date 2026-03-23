@@ -1,0 +1,793 @@
+{
+  "timestamp": "2026-03-19T11:34:58.670Z",
+  "errors": [
+    {
+      "file": "src/App.tsx",
+      "type": "Unbalanced JSX tags",
+      "open": 21,
+      "close": 22,
+      "difference": 1,
+      "problematicLines": [
+        {
+          "line": 108,
+          "content": "</ErrorBoundary>",
+          "openSoFar": 21,
+          "closeSoFar": 22
+        },
+        {
+          "line": 109,
+          "content": ");",
+          "openSoFar": 21,
+          "closeSoFar": 22
+        },
+        {
+          "line": 110,
+          "content": "}",
+          "openSoFar": 21,
+          "closeSoFar": 22
+        },
+        {
+          "line": 111,
+          "content": "",
+          "openSoFar": 21,
+          "closeSoFar": 22
+        },
+        {
+          "line": 112,
+          "content": "export default App;",
+          "openSoFar": 21,
+          "closeSoFar": 22
+        },
+        {
+          "line": 113,
+          "content": "",
+          "openSoFar": 21,
+          "closeSoFar": 22
+        },
+        {
+          "line": 114,
+          "content": "",
+          "openSoFar": 21,
+          "closeSoFar": 22
+        },
+        {
+          "line": 115,
+          "content": "",
+          "openSoFar": 21,
+          "closeSoFar": 22
+        },
+        {
+          "line": 116,
+          "content": "",
+          "openSoFar": 21,
+          "closeSoFar": 22
+        }
+      ],
+      "suggestion": "Remove 1 extra closing tags"
+    },
+    {
+      "file": "src/pages/Login.tsx",
+      "type": "Unbalanced JSX tags",
+      "open": 30,
+      "close": 45,
+      "difference": 15,
+      "problematicLines": [
+        {
+          "line": 179,
+          "content": "</div>",
+          "openSoFar": 18,
+          "closeSoFar": 19
+        },
+        {
+          "line": 180,
+          "content": "",
+          "openSoFar": 18,
+          "closeSoFar": 19
+        },
+        {
+          "line": 181,
+          "content": "<motion.button",
+          "openSoFar": 18,
+          "closeSoFar": 19
+        },
+        {
+          "line": 182,
+          "content": "type=\"submit\"",
+          "openSoFar": 18,
+          "closeSoFar": 19
+        },
+        {
+          "line": 183,
+          "content": "disabled={isLoading}",
+          "openSoFar": 18,
+          "closeSoFar": 19
+        },
+        {
+          "line": 184,
+          "content": "whileHover={{ scale: isLoading ? 1 : 1.02 }}",
+          "openSoFar": 18,
+          "closeSoFar": 19
+        },
+        {
+          "line": 185,
+          "content": "whileTap={{ scale: isLoading ? 1 : 0.98 }}",
+          "openSoFar": 18,
+          "closeSoFar": 19
+        },
+        {
+          "line": 186,
+          "content": "className={`btn-primary w-full ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}",
+          "openSoFar": 18,
+          "closeSoFar": 19
+        },
+        {
+          "line": 187,
+          "content": ">",
+          "openSoFar": 18,
+          "closeSoFar": 19
+        },
+        {
+          "line": 188,
+          "content": "{isLoading ? (",
+          "openSoFar": 18,
+          "closeSoFar": 19
+        },
+        {
+          "line": 192,
+          "content": "</div>",
+          "openSoFar": 21,
+          "closeSoFar": 22
+        },
+        {
+          "line": 193,
+          "content": ") : (",
+          "openSoFar": 21,
+          "closeSoFar": 22
+        },
+        {
+          "line": 194,
+          "content": "'Sign In'",
+          "openSoFar": 21,
+          "closeSoFar": 22
+        },
+        {
+          "line": 195,
+          "content": ")}",
+          "openSoFar": 21,
+          "closeSoFar": 22
+        },
+        {
+          "line": 196,
+          "content": "</motion.button>",
+          "openSoFar": 21,
+          "closeSoFar": 23
+        },
+        {
+          "line": 197,
+          "content": "",
+          "openSoFar": 21,
+          "closeSoFar": 23
+        },
+        {
+          "line": 198,
+          "content": "<motion.button",
+          "openSoFar": 21,
+          "closeSoFar": 23
+        },
+        {
+          "line": 199,
+          "content": "type=\"button\"",
+          "openSoFar": 21,
+          "closeSoFar": 23
+        },
+        {
+          "line": 200,
+          "content": "onClick={handleDemoLogin}",
+          "openSoFar": 21,
+          "closeSoFar": 23
+        },
+        {
+          "line": 201,
+          "content": "disabled={isLoading}",
+          "openSoFar": 21,
+          "closeSoFar": 23
+        },
+        {
+          "line": 202,
+          "content": "whileHover={{ scale: isLoading ? 1 : 1.02 }}",
+          "openSoFar": 21,
+          "closeSoFar": 23
+        },
+        {
+          "line": 203,
+          "content": "whileTap={{ scale: isLoading ? 1 : 0.98 }}",
+          "openSoFar": 21,
+          "closeSoFar": 23
+        },
+        {
+          "line": 204,
+          "content": "className=\"btn-secondary w-full\"",
+          "openSoFar": 21,
+          "closeSoFar": 23
+        },
+        {
+          "line": 205,
+          "content": ">",
+          "openSoFar": 21,
+          "closeSoFar": 23
+        },
+        {
+          "line": 206,
+          "content": "Try Demo Account",
+          "openSoFar": 21,
+          "closeSoFar": 23
+        },
+        {
+          "line": 207,
+          "content": "</motion.button>",
+          "openSoFar": 21,
+          "closeSoFar": 24
+        },
+        {
+          "line": 208,
+          "content": "",
+          "openSoFar": 21,
+          "closeSoFar": 24
+        },
+        {
+          "line": 209,
+          "content": "<div className=\"relative my-6\">",
+          "openSoFar": 22,
+          "closeSoFar": 24
+        },
+        {
+          "line": 210,
+          "content": "<div className=\"absolute inset-0 flex items-center\">",
+          "openSoFar": 23,
+          "closeSoFar": 24
+        },
+        {
+          "line": 211,
+          "content": "<div className=\"w-full border-t border-white/10\"></div>",
+          "openSoFar": 23,
+          "closeSoFar": 25
+        },
+        {
+          "line": 212,
+          "content": "</div>",
+          "openSoFar": 23,
+          "closeSoFar": 26
+        },
+        {
+          "line": 213,
+          "content": "<div className=\"relative flex justify-center text-sm\">",
+          "openSoFar": 24,
+          "closeSoFar": 26
+        },
+        {
+          "line": 214,
+          "content": "<span className=\"px-4 bg-navy-900 text-gray-400\">Or continue with</span>",
+          "openSoFar": 25,
+          "closeSoFar": 27
+        },
+        {
+          "line": 215,
+          "content": "</div>",
+          "openSoFar": 25,
+          "closeSoFar": 28
+        },
+        {
+          "line": 216,
+          "content": "</div>",
+          "openSoFar": 25,
+          "closeSoFar": 29
+        },
+        {
+          "line": 217,
+          "content": "",
+          "openSoFar": 25,
+          "closeSoFar": 29
+        },
+        {
+          "line": 218,
+          "content": "<div className=\"grid grid-cols-2 gap-4\">",
+          "openSoFar": 26,
+          "closeSoFar": 29
+        },
+        {
+          "line": 219,
+          "content": "<motion.button",
+          "openSoFar": 26,
+          "closeSoFar": 29
+        },
+        {
+          "line": 220,
+          "content": "type=\"button\"",
+          "openSoFar": 26,
+          "closeSoFar": 29
+        },
+        {
+          "line": 221,
+          "content": "onClick={handleGoogleLogin}",
+          "openSoFar": 26,
+          "closeSoFar": 29
+        },
+        {
+          "line": 222,
+          "content": "whileHover={{ scale: 1.05 }}",
+          "openSoFar": 26,
+          "closeSoFar": 29
+        },
+        {
+          "line": 223,
+          "content": "whileTap={{ scale: 0.95 }}",
+          "openSoFar": 26,
+          "closeSoFar": 29
+        },
+        {
+          "line": 224,
+          "content": "className=\"flex items-center justify-center px-4 py-3 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 transition-all\"",
+          "openSoFar": 26,
+          "closeSoFar": 29
+        },
+        {
+          "line": 225,
+          "content": ">",
+          "openSoFar": 26,
+          "closeSoFar": 29
+        },
+        {
+          "line": 226,
+          "content": "<svg className=\"w-5 h-5 mr-2\" viewBox=\"0 0 24 24\">",
+          "openSoFar": 27,
+          "closeSoFar": 29
+        },
+        {
+          "line": 227,
+          "content": "<path fill=\"currentColor\" d=\"M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z\"/>",
+          "openSoFar": 27,
+          "closeSoFar": 29
+        },
+        {
+          "line": 228,
+          "content": "<path fill=\"currentColor\" d=\"M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z\"/>",
+          "openSoFar": 27,
+          "closeSoFar": 29
+        },
+        {
+          "line": 229,
+          "content": "<path fill=\"currentColor\" d=\"M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z\"/>",
+          "openSoFar": 27,
+          "closeSoFar": 29
+        },
+        {
+          "line": 230,
+          "content": "<path fill=\"currentColor\" d=\"M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z\"/>",
+          "openSoFar": 27,
+          "closeSoFar": 29
+        },
+        {
+          "line": 231,
+          "content": "</svg>",
+          "openSoFar": 27,
+          "closeSoFar": 30
+        },
+        {
+          "line": 232,
+          "content": "Google",
+          "openSoFar": 27,
+          "closeSoFar": 30
+        },
+        {
+          "line": 233,
+          "content": "</motion.button>",
+          "openSoFar": 27,
+          "closeSoFar": 31
+        },
+        {
+          "line": 234,
+          "content": "",
+          "openSoFar": 27,
+          "closeSoFar": 31
+        },
+        {
+          "line": 235,
+          "content": "<motion.button",
+          "openSoFar": 27,
+          "closeSoFar": 31
+        },
+        {
+          "line": 236,
+          "content": "type=\"button\"",
+          "openSoFar": 27,
+          "closeSoFar": 31
+        },
+        {
+          "line": 237,
+          "content": "onClick={handleGithubLogin}",
+          "openSoFar": 27,
+          "closeSoFar": 31
+        },
+        {
+          "line": 238,
+          "content": "whileHover={{ scale: 1.05 }}",
+          "openSoFar": 27,
+          "closeSoFar": 31
+        },
+        {
+          "line": 239,
+          "content": "whileTap={{ scale: 0.95 }}",
+          "openSoFar": 27,
+          "closeSoFar": 31
+        },
+        {
+          "line": 240,
+          "content": "className=\"flex items-center justify-center px-4 py-3 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 transition-all\"",
+          "openSoFar": 27,
+          "closeSoFar": 31
+        },
+        {
+          "line": 241,
+          "content": ">",
+          "openSoFar": 27,
+          "closeSoFar": 31
+        },
+        {
+          "line": 242,
+          "content": "<svg className=\"w-5 h-5 mr-2\" viewBox=\"0 0 24 24\" fill=\"currentColor\">",
+          "openSoFar": 28,
+          "closeSoFar": 31
+        },
+        {
+          "line": 243,
+          "content": "<path d=\"M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.03-2.682-.103-.253-.447-1.27.098-2.646 0 0 .84-.269 2.75 1.025.8-.223 1.65-.334 2.5-.334.85 0 1.7.111 2.5.334 1.91-1.294 2.75-1.025 2.75-1.025.545 1.376.201 2.393.099 2.646.64.698 1.03 1.591 1.03 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z\"/>",
+          "openSoFar": 28,
+          "closeSoFar": 31
+        },
+        {
+          "line": 244,
+          "content": "</svg>",
+          "openSoFar": 28,
+          "closeSoFar": 32
+        },
+        {
+          "line": 245,
+          "content": "GitHub",
+          "openSoFar": 28,
+          "closeSoFar": 32
+        },
+        {
+          "line": 246,
+          "content": "</motion.button>",
+          "openSoFar": 28,
+          "closeSoFar": 33
+        },
+        {
+          "line": 247,
+          "content": "</div>",
+          "openSoFar": 28,
+          "closeSoFar": 34
+        },
+        {
+          "line": 248,
+          "content": "</form>",
+          "openSoFar": 28,
+          "closeSoFar": 35
+        },
+        {
+          "line": 249,
+          "content": "",
+          "openSoFar": 28,
+          "closeSoFar": 35
+        },
+        {
+          "line": 250,
+          "content": "<p className=\"mt-6 text-center text-sm text-gray-400\">",
+          "openSoFar": 29,
+          "closeSoFar": 35
+        },
+        {
+          "line": 251,
+          "content": "Don't have an account?{' '}",
+          "openSoFar": 29,
+          "closeSoFar": 35
+        },
+        {
+          "line": 252,
+          "content": "<Link",
+          "openSoFar": 29,
+          "closeSoFar": 35
+        },
+        {
+          "line": 253,
+          "content": "to={ROUTES.REGISTER}",
+          "openSoFar": 29,
+          "closeSoFar": 35
+        },
+        {
+          "line": 254,
+          "content": "className=\"text-teal-400 hover:text-teal-300 font-medium transition-colors\"",
+          "openSoFar": 29,
+          "closeSoFar": 35
+        },
+        {
+          "line": 255,
+          "content": ">",
+          "openSoFar": 29,
+          "closeSoFar": 35
+        },
+        {
+          "line": 256,
+          "content": "Sign up now",
+          "openSoFar": 29,
+          "closeSoFar": 35
+        },
+        {
+          "line": 257,
+          "content": "</Link>",
+          "openSoFar": 29,
+          "closeSoFar": 36
+        },
+        {
+          "line": 258,
+          "content": "</p>",
+          "openSoFar": 29,
+          "closeSoFar": 37
+        },
+        {
+          "line": 259,
+          "content": "",
+          "openSoFar": 29,
+          "closeSoFar": 37
+        },
+        {
+          "line": 260,
+          "content": "<p className=\"mt-4 text-center text-xs text-gray-500\">",
+          "openSoFar": 30,
+          "closeSoFar": 37
+        },
+        {
+          "line": 261,
+          "content": "By signing in, you agree to our{' '}",
+          "openSoFar": 30,
+          "closeSoFar": 37
+        },
+        {
+          "line": 262,
+          "content": "<Link to=\"/terms\" className=\"text-teal-400/70 hover:text-teal-300 transition-colors\">",
+          "openSoFar": 30,
+          "closeSoFar": 37
+        },
+        {
+          "line": 263,
+          "content": "Terms of Service",
+          "openSoFar": 30,
+          "closeSoFar": 37
+        },
+        {
+          "line": 264,
+          "content": "</Link>{' '}",
+          "openSoFar": 30,
+          "closeSoFar": 38
+        },
+        {
+          "line": 265,
+          "content": "and{' '}",
+          "openSoFar": 30,
+          "closeSoFar": 38
+        },
+        {
+          "line": 266,
+          "content": "<Link to=\"/privacy\" className=\"text-teal-400/70 hover:text-teal-300 transition-colors\">",
+          "openSoFar": 30,
+          "closeSoFar": 38
+        },
+        {
+          "line": 267,
+          "content": "Privacy Policy",
+          "openSoFar": 30,
+          "closeSoFar": 38
+        },
+        {
+          "line": 268,
+          "content": "</Link>",
+          "openSoFar": 30,
+          "closeSoFar": 39
+        },
+        {
+          "line": 269,
+          "content": "</p>",
+          "openSoFar": 30,
+          "closeSoFar": 40
+        },
+        {
+          "line": 270,
+          "content": "</motion.div>",
+          "openSoFar": 30,
+          "closeSoFar": 41
+        },
+        {
+          "line": 271,
+          "content": "",
+          "openSoFar": 30,
+          "closeSoFar": 41
+        },
+        {
+          "line": 272,
+          "content": "<motion.div",
+          "openSoFar": 30,
+          "closeSoFar": 41
+        },
+        {
+          "line": 273,
+          "content": "initial={{ opacity: 0 }}",
+          "openSoFar": 30,
+          "closeSoFar": 41
+        },
+        {
+          "line": 274,
+          "content": "animate={{ opacity: 1 }}",
+          "openSoFar": 30,
+          "closeSoFar": 41
+        },
+        {
+          "line": 275,
+          "content": "transition={{ delay: 0.6 }}",
+          "openSoFar": 30,
+          "closeSoFar": 41
+        },
+        {
+          "line": 276,
+          "content": "className=\"text-center mt-6\"",
+          "openSoFar": 30,
+          "closeSoFar": 41
+        },
+        {
+          "line": 277,
+          "content": ">",
+          "openSoFar": 30,
+          "closeSoFar": 41
+        },
+        {
+          "line": 278,
+          "content": "<Link",
+          "openSoFar": 30,
+          "closeSoFar": 41
+        },
+        {
+          "line": 279,
+          "content": "to=\"/\"",
+          "openSoFar": 30,
+          "closeSoFar": 41
+        },
+        {
+          "line": 280,
+          "content": "className=\"text-sm text-gray-500 hover:text-teal-400 transition-colors\"",
+          "openSoFar": 30,
+          "closeSoFar": 41
+        },
+        {
+          "line": 281,
+          "content": ">",
+          "openSoFar": 30,
+          "closeSoFar": 41
+        },
+        {
+          "line": 282,
+          "content": "← Back to Home",
+          "openSoFar": 30,
+          "closeSoFar": 41
+        },
+        {
+          "line": 283,
+          "content": "</Link>",
+          "openSoFar": 30,
+          "closeSoFar": 42
+        },
+        {
+          "line": 284,
+          "content": "</motion.div>",
+          "openSoFar": 30,
+          "closeSoFar": 43
+        },
+        {
+          "line": 285,
+          "content": "</motion.div>",
+          "openSoFar": 30,
+          "closeSoFar": 44
+        },
+        {
+          "line": 286,
+          "content": "</div>",
+          "openSoFar": 30,
+          "closeSoFar": 45
+        },
+        {
+          "line": 287,
+          "content": ");",
+          "openSoFar": 30,
+          "closeSoFar": 45
+        },
+        {
+          "line": 288,
+          "content": "};",
+          "openSoFar": 30,
+          "closeSoFar": 45
+        },
+        {
+          "line": 289,
+          "content": "",
+          "openSoFar": 30,
+          "closeSoFar": 45
+        },
+        {
+          "line": 290,
+          "content": "export default Login;",
+          "openSoFar": 30,
+          "closeSoFar": 45
+        },
+        {
+          "line": 291,
+          "content": "",
+          "openSoFar": 30,
+          "closeSoFar": 45
+        },
+        {
+          "line": 292,
+          "content": "",
+          "openSoFar": 30,
+          "closeSoFar": 45
+        },
+        {
+          "line": 293,
+          "content": "",
+          "openSoFar": 30,
+          "closeSoFar": 45
+        },
+        {
+          "line": 294,
+          "content": "",
+          "openSoFar": 30,
+          "closeSoFar": 45
+        },
+        {
+          "line": 295,
+          "content": "",
+          "openSoFar": 30,
+          "closeSoFar": 45
+        },
+        {
+          "line": 296,
+          "content": "",
+          "openSoFar": 30,
+          "closeSoFar": 45
+        }
+      ],
+      "suggestion": "Remove 15 extra closing tags"
+    },
+    {
+      "file": "src/pages/Login.tsx",
+      "type": "Unclosed quote",
+      "line": 265,
+      "quoteChar": "'"
+    },
+    {
+      "file": "src/context/ToastContext.tsx",
+      "type": "Unbalanced JSX tags",
+      "open": 3,
+      "close": 1,
+      "difference": 2,
+      "problematicLines": [],
+      "suggestion": "Add 2 closing tags at the end"
+    },
+    {
+      "file": "src/context/ThemeContext.tsx",
+      "type": "Unbalanced JSX tags",
+      "open": 3,
+      "close": 1,
+      "difference": 2,
+      "problematicLines": [],
+      "suggestion": "Add 2 closing tags at the end"
+    }
+  ]
+}

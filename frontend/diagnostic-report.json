@@ -1,0 +1,219 @@
+{
+  "timestamp": "2026-03-19T11:21:47.698Z",
+  "missingExports": [],
+  "syntaxErrors": [
+    {
+      "file": "src/App.tsx",
+      "error": "Unbalanced JSX tags: 39 open, 22 close",
+      "line": "N/A"
+    },
+    {
+      "file": "src/main.tsx",
+      "error": "Unbalanced JSX tags: 2 open, 1 close",
+      "line": "N/A"
+    },
+    {
+      "file": "src/pages/Login.tsx",
+      "error": "Unclosed single quote",
+      "line": "N/A"
+    },
+    {
+      "file": "src/context/AuthContext.tsx",
+      "error": "Unbalanced JSX tags: 6 open, 1 close",
+      "line": "N/A"
+    },
+    {
+      "file": "src/context/ToastContext.tsx",
+      "error": "Unbalanced JSX tags: 8 open, 5 close",
+      "line": "N/A"
+    },
+    {
+      "file": "src/context/ThemeContext.tsx",
+      "error": "Unbalanced JSX tags: 3 open, 1 close",
+      "line": "N/A"
+    }
+  ],
+  "importErrors": [],
+  "files": {
+    "src/App.tsx": {
+      "exports": [
+        "default App"
+      ],
+      "imports": [],
+      "hasJSX": true,
+      "lineCount": 113,
+      "content": "﻿import React, { Suspense, lazy, useEffect } from 'react';\nimport { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';\nimport { AuthProvider } from './context/AuthContext';\nimport { ToastProvider } from './context/ToastContext';\nimport { ThemeProvider } from './context/ThemeContext';\nimport ProtectedRoute from './components/Auth/ProtectedRoute';\nimport ErrorBoundary from './components/ErrorBoundary';\nimport Navbar from './components/Navigation/Navbar';\nimport LoadingPage..."
+    },
+    "src/main.tsx": {
+      "exports": [],
+      "imports": [],
+      "hasJSX": false,
+      "lineCount": 11,
+      "content": "﻿import React from 'react';\nimport ReactDOM from 'react-dom/client';\nimport App from './App';\nimport './index.css';\n\nReactDOM.createRoot(document.getElementById('root')!).render(\n  <React.StrictMode>\n    <App />\n  </React.StrictMode>\n);\r\n..."
+    },
+    "src/routes.ts": {
+      "exports": [
+        "const ROUTES"
+      ],
+      "imports": [],
+      "hasJSX": false,
+      "lineCount": 40,
+      "content": "﻿export const ROUTES = {\n  // Auth routes\n  LOGIN: '/login',\n  REGISTER: '/register',\n  FORGOT_PASSWORD: '/forgot-password',\n  RESET_PASSWORD: '/reset-password',\n  \n  // Main routes\n  DASHBOARD: '/dashboard',\n  WORKOUT: '/workout',\n  ANALYSIS: '/analysis',\n  ANALYSIS_ID: '/analysis/:id',\n  PROGRESS: '/progress',\n  NUTRITION: '/nutrition',\n  CHAT: '/chat',\n  PROFILE: '/profile',\n  SOCIAL: '/social',\n  GENERATOR: '/generator',\n  \n  // Social routes\n  FRIENDS: '/friends',\n  CHALLENGES: '/challenges..."
+    },
+    "src/pages/Login.tsx": {
+      "exports": [
+        "default Login"
+      ],
+      "imports": [],
+      "hasJSX": true,
+      "lineCount": 293,
+      "content": "﻿import React, { useState, useEffect } from 'react';\nimport { Link, useNavigate } from 'react-router-dom';\nimport { motion } from 'framer-motion';\nimport { useAuth } from '../hooks/useAuth';\nimport { useToast } from '../hooks/useToast';\nimport { ROUTES } from '../routes';\n\nconst Login: React.FC = () => {\n  const [email, setEmail] = useState('');\n  const [password, setPassword] = useState('');\n  const [isLoading, setIsLoading] = useState(false);\n  const [showPassword, setShowPassword] = useState(..."
+    },
+    "src/pages/Register.tsx": {
+      "exports": [
+        "default Register"
+      ],
+      "imports": [],
+      "hasJSX": true,
+      "lineCount": 385,
+      "content": "﻿import React, { useState, useEffect } from 'react';\nimport { Link, useNavigate } from 'react-router-dom';\nimport { motion } from 'framer-motion';\nimport { useAuth } from '../hooks/useAuth';\nimport { useToast } from '../hooks/useToast';\nimport { ROUTES } from '../routes';\n\nconst Register: React.FC = () => {\n  const [formData, setFormData] = useState({\n    name: '',\n    email: '',\n    password: '',\n    confirmPassword: ''\n  });\n  const [isLoading, setIsLoading] = useState(false);\n  const [showPas..."
+    },
+    "src/pages/Dashboard.tsx": {
+      "exports": [
+        "default Dashboard"
+      ],
+      "imports": [],
+      "hasJSX": true,
+      "lineCount": 89,
+      "content": "﻿import React, { useState, useEffect } from 'react';\nimport { motion } from 'framer-motion';\nimport { Link } from 'react-router-dom';\nimport { useAuth } from '../hooks/useAuth';\nimport { useWorkout } from '../hooks/useWorkout';\nimport { useAnalytics } from '../hooks/useAnalytics';\nimport { ROUTES } from '../routes';\nimport QuickStats from '../components/dashboard/QuickStats';\nimport RecentWorkouts from '../components/dashboard/RecentWorkouts';\nimport StreakCard from '../components/dashboard/Stre..."
+    },
+    "src/pages/Workout.tsx": {
+      "exports": [
+        "default Workout"
+      ],
+      "imports": [],
+      "hasJSX": true,
+      "lineCount": 617,
+      "content": "﻿import React, { useState, useEffect, useRef, useCallback } from 'react';\nimport { motion, AnimatePresence } from 'framer-motion';\nimport { useNavigate } from 'react-router-dom';\nimport { useAuth } from '../hooks/useAuth';\nimport { useToast } from '../hooks/useToast';\nimport { useWorkout } from '../hooks/useWorkout';\nimport { useAI } from '../hooks/useAI';\nimport CameraFeed from '../components/workout/CameraFeed';\nimport PoseOverlay from '../components/workout/PoseOverlay';\nimport ExerciseSelect..."
+    },
+    "src/context/AuthContext.tsx": {
+      "exports": [
+        "const AuthContext",
+        "const useAuth",
+        "const AuthProvider"
+      ],
+      "imports": [],
+      "hasJSX": false,
+      "lineCount": 113,
+      "content": "﻿import React, { createContext, useState, useContext, useEffect } from 'react';\nimport type { ReactNode } from 'react';\nimport { authService } from '../services/auth';\n\ninterface User {\n  id: string;\n  email: string;\n  name: string;\n  subscription: 'free' | 'pro';\n}\n\ninterface LoginData {\n  email: string;\n  password: string;\n}\n\ninterface RegisterData {\n  email: string;\n  password: string;\n  name: string;\n}\n\ninterface AuthContextType {\n  user: User | null;\n  loading: boolean;\n  login: (data: Logi..."
+    },
+    "src/context/ToastContext.tsx": {
+      "exports": [
+        "const ToastContext",
+        "const useToast",
+        "const ToastProvider"
+      ],
+      "imports": [],
+      "hasJSX": true,
+      "lineCount": 67,
+      "content": "﻿import React, { createContext, useContext, useState, useCallback } from 'react';\n\ninterface Toast {\n  id: string;\n  type: 'success' | 'error' | 'warning' | 'info';\n  message: string;\n  duration?: number;\n}\n\ninterface ToastContextType {\n  toasts: Toast[];\n  showToast: (type: Toast['type'], message: string, duration?: number) => void;\n  hideToast: (id: string) => void;\n}\n\nexport const ToastContext = createContext<ToastContextType | undefined>(undefined);\n\nexport const useToast = () => {\n  const c..."
+    },
+    "src/context/ThemeContext.tsx": {
+      "exports": [
+        "const ThemeContext",
+        "const useTheme",
+        "const ThemeProvider"
+      ],
+      "imports": [],
+      "hasJSX": true,
+      "lineCount": 44,
+      "content": "﻿import React, { createContext, useContext, useState, useEffect } from 'react';\n\ntype Theme = 'dark' | 'light';\n\ninterface ThemeContextType {\n  theme: Theme;\n  toggleTheme: () => void;\n}\n\nexport const ThemeContext = createContext<ThemeContextType | undefined>(undefined);\n\nexport const useTheme = () => {\n  const context = useContext(ThemeContext);\n  if (!context) {\n    throw new Error('useTheme must be used within a ThemeProvider');\n  }\n  return context;\n};\n\nexport const ThemeProvider: React.FC<{..."
+    },
+    "src/hooks/useAuth.ts": {
+      "exports": [
+        "const useAuth"
+      ],
+      "imports": [],
+      "hasJSX": false,
+      "lineCount": 11,
+      "content": "﻿import { useContext } from 'react';\nimport { AuthContext } from '../context/AuthContext';\n\nexport const useAuth = () => {\n  const context = useContext(AuthContext);\n  if (!context) {\n    throw new Error('useAuth must be used within an AuthProvider');\n  }\n  return context;\n};\r\n..."
+    },
+    "src/hooks/useToast.ts": {
+      "exports": [
+        "const useToast"
+      ],
+      "imports": [],
+      "hasJSX": false,
+      "lineCount": 11,
+      "content": "﻿import { useContext } from 'react';\nimport { ToastContext } from '../context/ToastContext';\n\nexport const useToast = () => {\n  const context = useContext(ToastContext);\n  if (!context) {\n    throw new Error('useToast must be used within a ToastProvider');\n  }\n  return context;\n};\r\n..."
+    },
+    "src/hooks/useWorkout.ts": {
+      "exports": [
+        "const useWorkout"
+      ],
+      "imports": [],
+      "hasJSX": false,
+      "lineCount": 74,
+      "content": "﻿import { useState } from 'react';\nimport api from '../services/api';\nimport { useToast } from './useToast';\n\nexport const useWorkout = () => {\n  const [loading, setLoading] = useState(false);\n  const { showToast } = useToast();\n\n  const getWorkouts = async () => {\n    try {\n      setLoading(true);\n      const response = await api.get('/workouts');\n      return response.data.data;\n    } catch (error) {\n      showToast('error', 'Failed to fetch workouts');\n      return [];\n    } finally {\n      s..."
+    },
+    "src/hooks/useAI.ts": {
+      "exports": [
+        "const useAI"
+      ],
+      "imports": [],
+      "hasJSX": false,
+      "lineCount": 136,
+      "content": "﻿import { useState } from 'react';\nimport api from '../services/api';\n\nexport const useAI = () => {\n  const [loading, setLoading] = useState(false);\n\n  const analyzeForm = async (poseData: any, exerciseType: string) => {\n    try {\n      const response = await api.post('/ai/analyze-form', { poseData, exerciseType });\n      return response.data.data;\n    } catch (error) {\n      return {\n        formScore: 0,\n        feedback: ['Unable to analyze form'],\n        issues: [],\n        suggestions: []\n..."
+    },
+    "src/hooks/useAnalytics.ts": {
+      "exports": [
+        "const useAnalytics",
+        "default useAnalytics"
+      ],
+      "imports": [],
+      "hasJSX": false,
+      "lineCount": 45,
+      "content": "﻿import { useState, useCallback } from 'react';\nimport api from '../services/api';\n\nexport const useAnalytics = () => {\n  const [loading, setLoading] = useState(false);\n  const [error, setError] = useState(null);\n\n  const getDashboardStats = useCallback(async () => {\n    try {\n      setLoading(true);\n      const response = await api.get('/analytics/dashboard');\n      return response.data.data;\n    } catch (err) {\n      setError(err.message);\n      throw err;\n    } finally {\n      setLoading(fals..."
+    },
+    "src/hooks/useProgress.ts": {
+      "exports": [
+        "const useProgress",
+        "default useProgress"
+      ],
+      "imports": [],
+      "hasJSX": false,
+      "lineCount": 87,
+      "content": "﻿import { useState } from 'react';\nimport api from '../services/api';\n\nexport const useProgress = () => {\n  const [loading, setLoading] = useState(false);\n  const [data, setData] = useState(null);\n  const [error, setError] = useState(null);\n\n  const getStrengthData = async (timeframe = '6m') => {\n    try {\n      setLoading(true);\n      const response = await api.get(`/progress/strength?timeframe=${timeframe}`);\n      return response.data.data;\n    } catch (err) {\n      setError(err.message);\n   ..."
+    },
+    "src/hooks/useNutrition.ts": {
+      "exports": [
+        "const useNutrition",
+        "default useNutrition"
+      ],
+      "imports": [],
+      "hasJSX": false,
+      "lineCount": 87,
+      "content": "﻿import { useState } from 'react';\nimport api from '../services/api';\n\nexport const useNutrition = () => {\n  const [loading, setLoading] = useState(false);\n  const [data, setData] = useState(null);\n  const [error, setError] = useState(null);\n\n  const getDailyLog = async () => {\n    try {\n      setLoading(true);\n      const response = await api.get('/nutrition/daily');\n      return response.data.data;\n    } catch (err) {\n      setError(err.message);\n      throw err;\n    } finally {\n      setLoadi..."
+    },
+    "src/hooks/useSocial.ts": {
+      "exports": [
+        "const useSocial",
+        "default useSocial"
+      ],
+      "imports": [],
+      "hasJSX": false,
+      "lineCount": 87,
+      "content": "﻿import { useState } from 'react';\nimport api from '../services/api';\n\nexport const useSocial = () => {\n  const [loading, setLoading] = useState(false);\n  const [data, setData] = useState(null);\n  const [error, setError] = useState(null);\n\n  const getFeed = async () => {\n    try {\n      setLoading(true);\n      const response = await api.get('/social/feed');\n      return response.data.data;\n    } catch (err) {\n      setError(err.message);\n      throw err;\n    } finally {\n      setLoading(false);\n..."
+    },
+    "src/hooks/useProfile.ts": {
+      "exports": [
+        "const useProfile",
+        "default useProfile"
+      ],
+      "imports": [],
+      "hasJSX": false,
+      "lineCount": 73,
+      "content": "﻿import { useState } from 'react';\nimport api from '../services/api';\n\nexport const useProfile = () => {\n  const [loading, setLoading] = useState(false);\n  const [data, setData] = useState(null);\n  const [error, setError] = useState(null);\n\n  const getProfile = async () => {\n    try {\n      setLoading(true);\n      const response = await api.get('/auth/profile');\n      return response.data;\n    } catch (err) {\n      setError(err.message);\n      throw err;\n    } finally {\n      setLoading(false);\n..."
+    }
+  }
+}

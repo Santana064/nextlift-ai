@@ -1,0 +1,25 @@
+import express from 'express';
+import {
+  getCoachingAdvice,
+  analyzeForm,
+  generateWorkoutPlan,
+  chatWithTrainer,
+  analyzeWorkout  // Added this import
+} from '../controllers/aiController';
+import authMiddleware from '../middleware/auth';
+
+const router = express.Router();
+
+// All routes require authentication
+router.use(authMiddleware);
+
+// ========== EXISTING ROUTES (KEPT INTACT) ==========
+router.post('/coaching', getCoachingAdvice);
+router.post('/analyze-form', analyzeForm);
+router.post('/workout-plan', generateWorkoutPlan);
+router.post('/chat', chatWithTrainer);
+
+// ========== NEW ROUTE FOR WORKOUT ANALYSIS (CONNECTS TO FRONTEND) ==========
+router.post('/workouts/:workoutId/analyze', analyzeWorkout);
+
+export default router;

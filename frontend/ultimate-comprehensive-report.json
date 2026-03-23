@@ -1,0 +1,1107 @@
+{
+  "timestamp": "2026-03-19T09:48:15.228Z",
+  "fileStructure": {
+    "passed": 42,
+    "failed": 0,
+    "tests": [
+      {
+        "name": "Main entry file",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.230Z"
+      },
+      {
+        "name": "App component",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.230Z"
+      },
+      {
+        "name": "Global styles",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.231Z"
+      },
+      {
+        "name": "Routes configuration",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.231Z"
+      },
+      {
+        "name": "Vite config",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.231Z"
+      },
+      {
+        "name": "Tailwind config",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.231Z"
+      },
+      {
+        "name": "PostCSS config",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.232Z"
+      },
+      {
+        "name": "HTML entry",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.232Z"
+      },
+      {
+        "name": "Login page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.232Z"
+      },
+      {
+        "name": "Register page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.232Z"
+      },
+      {
+        "name": "Dashboard page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.232Z"
+      },
+      {
+        "name": "Workout page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.233Z"
+      },
+      {
+        "name": "Analysis page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.233Z"
+      },
+      {
+        "name": "Progress page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.233Z"
+      },
+      {
+        "name": "Nutrition page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.233Z"
+      },
+      {
+        "name": "Social page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.233Z"
+      },
+      {
+        "name": "Profile page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.233Z"
+      },
+      {
+        "name": "Chat page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.234Z"
+      },
+      {
+        "name": "Generator page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.234Z"
+      },
+      {
+        "name": "Test page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.234Z"
+      },
+      {
+        "name": "Not Found page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.234Z"
+      },
+      {
+        "name": "Loading page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.234Z"
+      },
+      {
+        "name": "Camera Feed component",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.234Z"
+      },
+      {
+        "name": "Pose Overlay component",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.234Z"
+      },
+      {
+        "name": "Error Boundary component",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.235Z"
+      },
+      {
+        "name": "Protected Route component",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.235Z"
+      },
+      {
+        "name": "Navbar component",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.235Z"
+      },
+      {
+        "name": "Auth Protected Route",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.235Z"
+      },
+      {
+        "name": "Auth Context",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.235Z"
+      },
+      {
+        "name": "Toast Context",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.235Z"
+      },
+      {
+        "name": "Theme Context",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.235Z"
+      },
+      {
+        "name": "useAuth hook",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.236Z"
+      },
+      {
+        "name": "useToast hook",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.236Z"
+      },
+      {
+        "name": "useWorkout hook",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.236Z"
+      },
+      {
+        "name": "useAI hook",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.236Z"
+      },
+      {
+        "name": "useProgress hook",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.236Z"
+      },
+      {
+        "name": "useNutrition hook",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.236Z"
+      },
+      {
+        "name": "useSocial hook",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.236Z"
+      },
+      {
+        "name": "useAnalytics hook",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.236Z"
+      },
+      {
+        "name": "useProfile hook",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.237Z"
+      },
+      {
+        "name": "API service",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.237Z"
+      },
+      {
+        "name": "Auth service",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.237Z"
+      }
+    ]
+  },
+  "imports": {
+    "passed": 102,
+    "failed": 0,
+    "tests": [
+      {
+        "name": "src\\App.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.245Z"
+      },
+      {
+        "name": "src\\components\\analysis\\ComparisonChart.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.245Z"
+      },
+      {
+        "name": "src\\components\\analysis\\FeedbackList.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.246Z"
+      },
+      {
+        "name": "src\\components\\analysis\\FormScoreChart.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.246Z"
+      },
+      {
+        "name": "src\\components\\analysis\\ImprovementTips.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.246Z"
+      },
+      {
+        "name": "src\\components\\analysis\\MuscleActivation.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.246Z"
+      },
+      {
+        "name": "src\\components\\analysis\\RepAnalysis.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.246Z"
+      },
+      {
+        "name": "src\\components\\analysis\\VideoReplay.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.247Z"
+      },
+      {
+        "name": "src\\components\\Auth\\ProtectedRoute.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.247Z"
+      },
+      {
+        "name": "src\\components\\CameraFeed.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.247Z"
+      },
+      {
+        "name": "src\\components\\chat\\ChatInput.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.248Z"
+      },
+      {
+        "name": "src\\components\\chat\\ChatMessage.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.248Z"
+      },
+      {
+        "name": "src\\components\\chat\\QuickActions.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.248Z"
+      },
+      {
+        "name": "src\\components\\chat\\VoiceInput.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.248Z"
+      },
+      {
+        "name": "src\\components\\dashboard\\AchievementShowcase.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.248Z"
+      },
+      {
+        "name": "src\\components\\dashboard\\FriendActivity.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.248Z"
+      },
+      {
+        "name": "src\\components\\dashboard\\GoalTracker.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.249Z"
+      },
+      {
+        "name": "src\\components\\dashboard\\MotivationQuote.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.249Z"
+      },
+      {
+        "name": "src\\components\\dashboard\\NutritionSummary.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.249Z"
+      },
+      {
+        "name": "src\\components\\dashboard\\ProgressChart.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.249Z"
+      },
+      {
+        "name": "src\\components\\dashboard\\QuickStats.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.249Z"
+      },
+      {
+        "name": "src\\components\\dashboard\\RecentWorkouts.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.250Z"
+      },
+      {
+        "name": "src\\components\\dashboard\\StreakCard.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.250Z"
+      },
+      {
+        "name": "src\\components\\dashboard\\WorkoutRecommendations.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.250Z"
+      },
+      {
+        "name": "src\\components\\ErrorBoundary.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.250Z"
+      },
+      {
+        "name": "src\\components\\generator\\GeneratedWorkout.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.250Z"
+      },
+      {
+        "name": "src\\components\\generator\\LoadingAnimation.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.250Z"
+      },
+      {
+        "name": "src\\components\\generator\\WorkoutPreferences.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.251Z"
+      },
+      {
+        "name": "src\\components\\Navigation\\Navbar.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.251Z"
+      },
+      {
+        "name": "src\\components\\nutrition\\FoodSearch.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.251Z"
+      },
+      {
+        "name": "src\\components\\nutrition\\MacroTracker.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.251Z"
+      },
+      {
+        "name": "src\\components\\nutrition\\MealLogger.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.251Z"
+      },
+      {
+        "name": "src\\components\\nutrition\\MealPlanDisplay.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.252Z"
+      },
+      {
+        "name": "src\\components\\nutrition\\NutritionStats.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.252Z"
+      },
+      {
+        "name": "src\\components\\nutrition\\WaterTracker.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.252Z"
+      },
+      {
+        "name": "src\\components\\PoseOverlay.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.252Z"
+      },
+      {
+        "name": "src\\components\\profile\\AchievementGrid.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.252Z"
+      },
+      {
+        "name": "src\\components\\profile\\Measurements.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.253Z"
+      },
+      {
+        "name": "src\\components\\profile\\ProfileHeader.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.253Z"
+      },
+      {
+        "name": "src\\components\\profile\\ProfileStats.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.253Z"
+      },
+      {
+        "name": "src\\components\\profile\\Referrals.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.253Z"
+      },
+      {
+        "name": "src\\components\\profile\\Settings.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.253Z"
+      },
+      {
+        "name": "src\\components\\profile\\WorkoutHistory.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.253Z"
+      },
+      {
+        "name": "src\\components\\progress\\GoalProgress.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.253Z"
+      },
+      {
+        "name": "src\\components\\progress\\MeasurementsChart.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.254Z"
+      },
+      {
+        "name": "src\\components\\progress\\PersonalRecords.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.254Z"
+      },
+      {
+        "name": "src\\components\\progress\\StrengthProgress.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.254Z"
+      },
+      {
+        "name": "src\\components\\progress\\TrendAnalysis.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.254Z"
+      },
+      {
+        "name": "src\\components\\progress\\WeightChart.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.254Z"
+      },
+      {
+        "name": "src\\components\\progress\\WorkoutHeatmap.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.254Z"
+      },
+      {
+        "name": "src\\components\\ProtectedRoute.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.255Z"
+      },
+      {
+        "name": "src\\components\\social\\Challenges.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.255Z"
+      },
+      {
+        "name": "src\\components\\social\\CreatePost.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.255Z"
+      },
+      {
+        "name": "src\\components\\social\\Feed.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.255Z"
+      },
+      {
+        "name": "src\\components\\social\\FriendList.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.255Z"
+      },
+      {
+        "name": "src\\components\\social\\FriendRequests.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.256Z"
+      },
+      {
+        "name": "src\\components\\social\\Leaderboard.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.256Z"
+      },
+      {
+        "name": "src\\components\\social\\Messages.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.256Z"
+      },
+      {
+        "name": "src\\components\\workout\\CameraFeed.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.256Z"
+      },
+      {
+        "name": "src\\components\\workout\\ExerciseGuide.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.256Z"
+      },
+      {
+        "name": "src\\components\\workout\\ExerciseSelector.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.257Z"
+      },
+      {
+        "name": "src\\components\\workout\\FormAnalysis.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.257Z"
+      },
+      {
+        "name": "src\\components\\workout\\LiveStats.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.257Z"
+      },
+      {
+        "name": "src\\components\\workout\\PoseOverlay.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.257Z"
+      },
+      {
+        "name": "src\\components\\workout\\RepCounter.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.257Z"
+      },
+      {
+        "name": "src\\components\\workout\\VoiceCoach.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.257Z"
+      },
+      {
+        "name": "src\\components\\workout\\WorkoutControls.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.258Z"
+      },
+      {
+        "name": "src\\components\\workout\\WorkoutHistory.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.258Z"
+      },
+      {
+        "name": "src\\components\\workout\\WorkoutSummary.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.258Z"
+      },
+      {
+        "name": "src\\context\\AuthContext.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.258Z"
+      },
+      {
+        "name": "src\\context\\ThemeContext.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.259Z"
+      },
+      {
+        "name": "src\\context\\ToastContext.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.259Z"
+      },
+      {
+        "name": "src\\data\\exercises.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.259Z"
+      },
+      {
+        "name": "src\\hooks\\useAI.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.259Z"
+      },
+      {
+        "name": "src\\hooks\\useAnalytics.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.259Z"
+      },
+      {
+        "name": "src\\hooks\\useAuth.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.260Z"
+      },
+      {
+        "name": "src\\hooks\\useNutrition.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.260Z"
+      },
+      {
+        "name": "src\\hooks\\useProfile.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.260Z"
+      },
+      {
+        "name": "src\\hooks\\useProgress.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.260Z"
+      },
+      {
+        "name": "src\\hooks\\useSocial.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.260Z"
+      },
+      {
+        "name": "src\\hooks\\useToast.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.261Z"
+      },
+      {
+        "name": "src\\hooks\\useWorkout.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.261Z"
+      },
+      {
+        "name": "src\\main.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.262Z"
+      },
+      {
+        "name": "src\\pages\\Analysis.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.262Z"
+      },
+      {
+        "name": "src\\pages\\Chat.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.263Z"
+      },
+      {
+        "name": "src\\pages\\Dashboard.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.264Z"
+      },
+      {
+        "name": "src\\pages\\Generator.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.265Z"
+      },
+      {
+        "name": "src\\pages\\LoadingPage.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.265Z"
+      },
+      {
+        "name": "src\\pages\\Login.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.266Z"
+      },
+      {
+        "name": "src\\pages\\NotFound.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.266Z"
+      },
+      {
+        "name": "src\\pages\\Nutrition.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.267Z"
+      },
+      {
+        "name": "src\\pages\\Profile.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.268Z"
+      },
+      {
+        "name": "src\\pages\\Progress.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.268Z"
+      },
+      {
+        "name": "src\\pages\\Register.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.269Z"
+      },
+      {
+        "name": "src\\pages\\Social.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.270Z"
+      },
+      {
+        "name": "src\\pages\\Test.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.270Z"
+      },
+      {
+        "name": "src\\pages\\Workout.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.272Z"
+      },
+      {
+        "name": "src\\routes.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.272Z"
+      },
+      {
+        "name": "src\\services\\api.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.273Z"
+      },
+      {
+        "name": "src\\services\\auth.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.273Z"
+      },
+      {
+        "name": "src\\utils\\helpers.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.273Z"
+      },
+      {
+        "name": "src\\utils\\mockData.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.274Z"
+      }
+    ]
+  },
+  "backend": {
+    "passed": 17,
+    "failed": 0,
+    "tests": [
+      {
+        "name": "Health Check",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.307Z"
+      },
+      {
+        "name": "Login",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.379Z"
+      },
+      {
+        "name": "Get Profile",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.383Z"
+      },
+      {
+        "name": "Get Workouts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.385Z"
+      },
+      {
+        "name": "Get Workout History",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.387Z"
+      },
+      {
+        "name": "Get Workout Stats",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.389Z"
+      },
+      {
+        "name": "Analytics Dashboard",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.394Z"
+      },
+      {
+        "name": "Workout Analytics",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.397Z"
+      },
+      {
+        "name": "Progress Analytics",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.400Z"
+      },
+      {
+        "name": "Achievement Analytics",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.404Z"
+      },
+      {
+        "name": "Streak Analytics",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.408Z"
+      },
+      {
+        "name": "Social Feed",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.410Z"
+      },
+      {
+        "name": "Friends List",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.412Z"
+      },
+      {
+        "name": "Challenges",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.413Z"
+      },
+      {
+        "name": "Daily Nutrition",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.415Z"
+      },
+      {
+        "name": "Meal Plan",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.417Z"
+      },
+      {
+        "name": "Create Workout",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.419Z"
+      }
+    ]
+  },
+  "frontend": {
+    "passed": 12,
+    "failed": 0,
+    "tests": [
+      {
+        "name": "Home/Dashboard",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.427Z"
+      },
+      {
+        "name": "Login Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.433Z"
+      },
+      {
+        "name": "Register Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.436Z"
+      },
+      {
+        "name": "Workout Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.440Z"
+      },
+      {
+        "name": "Analysis Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.445Z"
+      },
+      {
+        "name": "Progress Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.449Z"
+      },
+      {
+        "name": "Nutrition Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.452Z"
+      },
+      {
+        "name": "Social Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.455Z"
+      },
+      {
+        "name": "Profile Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.461Z"
+      },
+      {
+        "name": "Chat Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.464Z"
+      },
+      {
+        "name": "Generator Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.467Z"
+      },
+      {
+        "name": "Test Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.470Z"
+      }
+    ]
+  },
+  "functionality": {
+    "passed": 6,
+    "failed": 0,
+    "tests": [
+      {
+        "name": "Context Providers",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.471Z"
+      },
+      {
+        "name": "Protected Routes",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.471Z"
+      },
+      {
+        "name": "Error Handling",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.471Z"
+      },
+      {
+        "name": "Route Definitions",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.471Z"
+      },
+      {
+        "name": "API Configuration",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.471Z"
+      },
+      {
+        "name": "Auth Service",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:48:15.472Z"
+      }
+    ]
+  }
+}

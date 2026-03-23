@@ -1,0 +1,689 @@
+import { Request, Response } from 'express';
+import OpenAI from 'openai';
+import prisma from '../config/database';
+
+// Initialize OpenAI
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
+
+interface ExerciseAnalysis {
+  assessment: string;
+  improvements: string[];
+  strengths: string[];
+  nextTip: string;
+  formScore: number;
+}
+
+// ==================== WORKOUT ANALYSIS (CONNECTS TO FRONTEND) ====================
+export const analyzeWorkout = async (req: Request, res: Response) => {
+  try {
+    const { workoutId } = req.params;
+    const userId = (req as any).user.id;
+    const { formScore, issues, aiFeedback } = req.body;
+
+    // First, find the workout
+    const workout = await prisma.workout.findFirst({
+      where: {
+        id: workoutId,
+        userId
+      },
+      include: {
+        user: true
+      }
+    });
+
+    if (!workout) {
+      return res.status(404).json({ error: 'Workout not found' });
+    }
+
+    // Update workout with form score
+    await prisma.workout.update({
+      where: { id: workoutId },
+      data: {
+        formScore: formScore || workout.formScore,
+        issues: issues || null
+      }
+    });
+
+    // Generate AI feedback if not provided
+    let finalAiFeedback = aiFeedback;
+    let finalFormBreakdown = issues;
+    let finalImprovements = issues;
+
+    if (!finalAiFeedback) {
+      try {
+        // Generate AI feedback using OpenAI
+        const prompt = `As an expert fitness coach, analyze this ${workout.exerciseType} workout:
+        - Reps: ${workout.reps || 0}
+        - Sets: ${workout.sets || 1}
+        - Duration: ${workout.duration || 0} seconds
+        - Current form score: ${formScore || workout.formScore || 75}%
+        
+        Provide a detailed analysis with:
+        1. Overall assessment (2-3 sentences about their performance)
+        2. Three specific form improvements they should work on
+        3. Three strengths they're doing well
+        4. One specific tip for their next workout
+        
+        Format your response as a JSON object with these exact keys:
+        {
+          "assessment": "string",
+          "improvements": ["string", "string", "string"],
+          "strengths": ["string", "string", "string"],
+          "nextTip": "string",
+          "formScore": number (between 60-100 based on their performance)
+        }`;
+
+        const completion = await openai.chat.completions.create({
+          model: "gpt-3.5-turbo",
+          messages: [
+            { 
+              role: "system", 
+              content: "You are an expert fitness coach specializing in form analysis. Always respond with valid JSON." 
+            },
+            { role: "user", content: prompt }
+          ],
+          temperature: 0.7,
+          response_format: { type: "json_object" }
+        });
+
+        const responseContent = completion.choices[0].message.content;
+        if (responseContent) {
+          const analysisData = JSON.parse(responseContent) as ExerciseAnalysis;
+          
+          finalAiFeedback = `${analysisData.assessment}\n\nStrengths: ${analysisData.strengths.join(', ')}\n\nNext Tip: ${analysisData.nextTip}`;
+          finalFormBreakdown = analysisData.improvements.join(', ');
+          finalImprovements = analysisData.strengths.join(', ');
+          
+          // Update form score if AI provided a better estimate
+          if (analysisData.formScore && analysisData.formScore !== formScore) {
+            await prisma.workout.update({
+              where: { id: workoutId },
+              data: { formScore: analysisData.formScore }
+            });
+          }
+        }
+      } catch (aiError) {
+        console.error('OpenAI API error:', aiError);
+        // Fallback to generated analysis
+        const fallback = generateFallbackAnalysis(workout.exerciseType, formScore || workout.formScore || 75);
+        finalAiFeedback = `${fallback.assessment}\n\nStrengths: ${fallback.strengths.join(', ')}\n\nNext Tip: ${fallback.nextTip}`;
+        finalFormBreakdown = fallback.improvements.join(', ');
+        finalImprovements = fallback.strengths.join(', ');
+      }
+    }
+
+    // Create or update analysis
+    const analysis = await prisma.workoutAnalysis.upsert({
+      where: { workoutId },
+      update: {
+        aiFeedback: finalAiFeedback,
+        formBreakdown: finalFormBreakdown,
+        improvements: finalImprovements
+      },
+      create: {
+        workoutId,
+        aiFeedback: finalAiFeedback,
+        formBreakdown: finalFormBreakdown,
+        improvements: finalImprovements
+      }
+    });
+
+    // Check for perfect form achievement
+    const currentFormScore = formScore || workout.formScore || 75;
+    if (currentFormScore >= 95) {
+      await prisma.achievement.create({
+        data: {
+          userId,
+          type: 'perfect_form',
+          name: 'Perfect Form',
+          description: `Achieved ${currentFormScore}% form score on ${workout.exerciseType}`
+        }
+      });
+    }
+
+    res.json(analysis);
+  } catch (error) {
+    console.error('Analyze workout error:', error);
+    res.status(500).json({ error: 'Failed to analyze workout' });
+  }
+};
+
+// ==================== COACHING ADVICE ====================
+export const getCoachingAdvice = async (req: Request, res: Response) => {
+  try {
+    const userId = (req as any).user.id;
+    const { workoutIds } = req.body;
+
+    // Get last 10 workouts
+    const workouts = await prisma.workout.findMany({
+      where: {
+        userId,
+        id: { in: workoutIds || undefined }
+      },
+      orderBy: { createdAt: 'desc' },
+      take: 10,
+      include: {
+        analysis: true
+      }
+    });
+
+    // Get user data
+    const user = await prisma.user.findUnique({
+      where: { id: userId }
+    });
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Calculate statistics
+    const avgFormScore = workouts.length > 0 
+      ? workouts.reduce((acc, w) => acc + (w.formScore || 0), 0) / workouts.length 
+      : 0;
+    const totalWorkouts = workouts.length;
+    const exerciseTypes = [...new Set(workouts.map(w => w.exerciseType))];
+    const totalReps = workouts.reduce((acc, w) => acc + (w.reps || 0), 0);
+    const totalDuration = workouts.reduce((acc, w) => acc + (w.duration || 0), 0);
+
+    // Try to get AI-generated advice
+    let aiSummary = '';
+    let aiStrengths: string[] = [];
+    let aiImprovements: string[] = [];
+
+    try {
+      const prompt = `As a fitness coach, analyze this client's workout history:
+      
+      Client: ${user.name}
+      Goal: ${user.goal || 'general fitness'}
+      Total Workouts: ${totalWorkouts}
+      Average Form Score: ${avgFormScore.toFixed(1)}%
+      Total Reps: ${totalReps}
+      Total Time: ${Math.round(totalDuration / 60)} minutes
+      Exercises: ${exerciseTypes.join(', ') || 'None yet'}
+      
+      Provide:
+      1. A brief summary of their progress (1 sentence)
+      2. Two strengths they're showing
+      3. Two areas for improvement
+      
+      Format as JSON: {
+        "summary": "string",
+        "strengths": ["string", "string"],
+        "improvements": ["string", "string"]
+      }`;
+
+      const completion = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [
+          { role: "system", content: "You are an encouraging fitness coach. Be positive but honest." },
+          { role: "user", content: prompt }
+        ],
+        temperature: 0.7,
+        response_format: { type: "json_object" }
+      });
+
+      const responseContent = completion.choices[0].message.content;
+      if (responseContent) {
+        const advice = JSON.parse(responseContent);
+        aiSummary = advice.summary;
+        aiStrengths = advice.strengths;
+        aiImprovements = advice.improvements;
+      }
+    } catch (aiError) {
+      console.error('OpenAI coaching error:', aiError);
+    }
+
+    // Generate coaching advice
+    const advice = {
+      summary: aiSummary || `You've completed ${totalWorkouts} workouts with an average form score of ${avgFormScore.toFixed(1)}%.`,
+      strengths: aiStrengths.length > 0 ? aiStrengths : exerciseTypes.map(type => `Good consistency with ${type} exercises`),
+      improvements: aiImprovements.length > 0 ? aiImprovements : [
+        avgFormScore < 80 ? 'Focus on form quality over speed' : 'Try increasing weight gradually',
+        'Consider adding more variety to your routine'
+      ],
+      nextWorkout: {
+        type: exerciseTypes[0] || 'squat',
+        focus: avgFormScore < 80 ? 'Improve form quality' : 'Increase intensity',
+        tips: [
+          'Warm up properly',
+          'Focus on controlled movements',
+          'Track your progress'
+        ]
+      },
+      stats: {
+        totalWorkouts,
+        avgFormScore: Math.round(avgFormScore),
+        totalReps,
+        totalMinutes: Math.round(totalDuration / 60)
+      }
+    };
+
+    res.json(advice);
+  } catch (error) {
+    console.error('Coaching advice error:', error);
+    res.status(500).json({ error: 'Failed to generate coaching advice' });
+  }
+};
+
+// ==================== FORM ANALYSIS (REAL-TIME) ====================
+export const analyzeForm = async (req: Request, res: Response) => {
+  try {
+    const { exerciseType, poseData } = req.body;
+
+    // This will be integrated with TensorFlow/MoveNet later
+    // For now, return mock analysis based on exercise type
+    
+    const analysis: {
+      formScore: number;
+      issues: string[];
+      suggestions: string[];
+    } = {
+      formScore: Math.floor(Math.random() * 30) + 70, // Random score between 70-100
+      issues: [],
+      suggestions: []
+    };
+
+    // Exercise-specific feedback
+    const exerciseFeedback: Record<string, { issues: string[], suggestions: string[] }> = {
+      squat: {
+        issues: [
+          'Knees caving inward',
+          'Chest falling forward',
+          'Not going deep enough'
+        ],
+        suggestions: [
+          'Push knees outward',
+          'Keep chest proud and core tight',
+          'Aim for parallel or below'
+        ]
+      },
+      bench_press: {
+        issues: [
+          'Elbows flaring too wide',
+          'Bar path inconsistent',
+          'Shoulders not retracted'
+        ],
+        suggestions: [
+          'Tuck elbows at 45 degrees',
+          'Touch bar to lower chest',
+          'Squeeze shoulder blades together'
+        ]
+      },
+      deadlift: {
+        issues: [
+          'Back rounding',
+          'Hips rising too fast',
+          'Bar away from shins'
+        ],
+        suggestions: [
+          'Keep back flat',
+          'Hips and shoulders rise together',
+          'Keep bar close to body'
+        ]
+      },
+      pushup: {
+        issues: [
+          'Hips sagging',
+          'Elbows flaring',
+          'Not going low enough'
+        ],
+        suggestions: [
+          'Keep core tight',
+          'Elbows at 45 degrees',
+          'Chest to ground'
+        ]
+      },
+      pullup: {
+        issues: [
+          'Kipping/swinging',
+          'Not full extension',
+          'Pulling with arms only'
+        ],
+        suggestions: [
+          'Control the movement',
+          'Full extension at bottom',
+          'Pull with back, engage lats'
+        ]
+      }
+    };
+
+    const feedback = exerciseFeedback[exerciseType] || {
+      issues: ['Form could be improved'],
+      suggestions: ['Focus on controlled movement', 'Maintain proper breathing']
+    };
+
+    // Randomly select 1-2 issues and suggestions
+    const numIssues = Math.min(2, feedback.issues.length);
+    const numSuggestions = Math.min(2, feedback.suggestions.length);
+    
+    analysis.issues = feedback.issues
+      .sort(() => 0.5 - Math.random())
+      .slice(0, numIssues);
+    analysis.suggestions = feedback.suggestions
+      .sort(() => 0.5 - Math.random())
+      .slice(0, numSuggestions);
+
+    res.json(analysis);
+  } catch (error) {
+    console.error('Form analysis error:', error);
+    res.status(500).json({ error: 'Failed to analyze form' });
+  }
+};
+
+// ==================== WORKOUT PLAN GENERATION ====================
+export const generateWorkoutPlan = async (req: Request, res: Response) => {
+  try {
+    const userId = (req as any).user.id;
+    const { goal, experienceLevel, availableEquipment, daysPerWeek } = req.body;
+
+    // Get user data for personalization
+    const user = await prisma.user.findUnique({
+      where: { id: userId },
+      include: {
+        workouts: {
+          orderBy: { createdAt: 'desc' },
+          take: 5
+        }
+      }
+    });
+
+    // Base workout plans by goal
+    const plans: Record<string, any> = {
+      strength: {
+        title: 'Strength Builder',
+        description: 'Focus on compound lifts with progressive overload',
+        weeklySchedule: []
+      },
+      hypertrophy: {
+        title: 'Muscle Builder',
+        description: 'Higher volume for muscle growth',
+        weeklySchedule: []
+      },
+      endurance: {
+        title: 'Endurance Athlete',
+        description: 'Build stamina and muscular endurance',
+        weeklySchedule: []
+      },
+      weight_loss: {
+        title: 'Fat Loss Accelerator',
+        description: 'High-intensity workouts to burn calories',
+        weeklySchedule: []
+      },
+      general: {
+        title: 'Balanced Fitness',
+        description: 'All-around fitness and health',
+        weeklySchedule: []
+      }
+    };
+
+    // Generate weekly schedule based on parameters
+    const exercises = {
+      strength: [
+        { name: 'Squats', sets: 5, reps: 5, rest: '180s' },
+        { name: 'Bench Press', sets: 5, reps: 5, rest: '180s' },
+        { name: 'Deadlifts', sets: 3, reps: 5, rest: '180s' },
+        { name: 'Overhead Press', sets: 3, reps: 8, rest: '120s' },
+        { name: 'Barbell Rows', sets: 3, reps: 8, rest: '120s' }
+      ],
+      hypertrophy: [
+        { name: 'Squats', sets: 4, reps: 10, rest: '90s' },
+        { name: 'Leg Press', sets: 3, reps: 12, rest: '60s' },
+        { name: 'Bench Press', sets: 4, reps: 10, rest: '90s' },
+        { name: 'Dumbbell Flyes', sets: 3, reps: 12, rest: '60s' },
+        { name: 'Pull-ups', sets: 3, reps: 10, rest: '90s' }
+      ],
+      endurance: [
+        { name: 'Bodyweight Squats', sets: 3, reps: 20, rest: '45s' },
+        { name: 'Push-ups', sets: 3, reps: 15, rest: '45s' },
+        { name: 'Lunges', sets: 3, reps: 15, rest: '45s' },
+        { name: 'Planks', sets: 3, reps: '45s', rest: '30s' },
+        { name: 'Jump Rope', sets: 3, reps: '60s', rest: '30s' }
+      ],
+      weight_loss: [
+        { name: 'Burpees', sets: 3, reps: 15, rest: '30s' },
+        { name: 'Mountain Climbers', sets: 3, reps: '30s', rest: '30s' },
+        { name: 'Kettlebell Swings', sets: 3, reps: 15, rest: '30s' },
+        { name: 'Box Jumps', sets: 3, reps: 12, rest: '30s' },
+        { name: 'Rowing Machine', sets: 3, reps: '200m', rest: '60s' }
+      ]
+    };
+
+    const selectedExercises = exercises[goal as keyof typeof exercises] || exercises.general;
+    const days = daysPerWeek || 3;
+    const daysOfWeek = ['Monday', 'Wednesday', 'Friday', 'Tuesday', 'Thursday', 'Saturday', 'Sunday'];
+    
+    const weeklySchedule = [];
+    for (let i = 0; i < days; i++) {
+      // Shuffle and pick 3-4 exercises
+      const shuffled = [...selectedExercises].sort(() => 0.5 - Math.random());
+      const dailyExercises = shuffled.slice(0, Math.min(4, shuffled.length));
+      
+      weeklySchedule.push({
+        day: daysOfWeek[i],
+        focus: i === 0 ? 'Push' : i === 1 ? 'Pull' : 'Legs',
+        exercises: dailyExercises
+      });
+    }
+
+    const workoutPlan = {
+      title: plans[goal]?.title || 'Custom Workout Plan',
+      description: plans[goal]?.description || 'Personalized for your goals',
+      duration: '4 weeks',
+      experienceLevel: experienceLevel || 'beginner',
+      weeklySchedule,
+      tips: [
+        'Always warm up for 5-10 minutes before starting',
+        'Stay hydrated throughout your workout',
+        'Focus on form before adding weight',
+        'Get 7-9 hours of sleep for recovery',
+        'Track your progress to stay motivated'
+      ],
+      nextSteps: [
+        'Complete each workout with proper form',
+        'Increase weight when you can complete all reps easily',
+        'Take rest days as scheduled',
+        'Adjust based on how your body feels'
+      ]
+    };
+
+    res.json(workoutPlan);
+  } catch (error) {
+    console.error('Generate workout plan error:', error);
+    res.status(500).json({ error: 'Failed to generate workout plan' });
+  }
+};
+
+// ==================== CHAT WITH AI TRAINER ====================
+export const chatWithTrainer = async (req: Request, res: Response) => {
+  try {
+    const userId = (req as any).user.id;
+    const { message, context } = req.body;
+
+    // Get user's recent workout data for context
+    const recentWorkouts = await prisma.workout.findMany({
+      where: { userId },
+      orderBy: { createdAt: 'desc' },
+      take: 3,
+      include: { analysis: true }
+    });
+
+    const user = await prisma.user.findUnique({
+      where: { id: userId }
+    });
+
+    // Format workout data for context
+    const workoutContext = recentWorkouts.map(w => 
+      `${w.exerciseType}: ${w.reps || 0} reps, ${w.sets || 1} sets, ${w.formScore || 0}% form`
+    ).join('\n');
+
+    let aiResponse = '';
+
+    try {
+      const prompt = `As a friendly AI fitness trainer, answer this question from a client:
+      
+      Client: ${user?.name || 'Client'}
+      Goal: ${user?.goal || 'general fitness'}
+      Recent workouts:
+      ${workoutContext || 'No recent workouts'}
+      
+      Question: ${message}
+      Context: ${context || 'general fitness question'}
+      
+      Provide a helpful, encouraging response (2-3 sentences).`;
+
+      const completion = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [
+          { 
+            role: "system", 
+            content: "You are a knowledgeable, encouraging AI fitness trainer. Give practical, science-based advice in a friendly tone." 
+          },
+          { role: "user", content: prompt }
+        ],
+        temperature: 0.7,
+        max_tokens: 150
+      });
+
+      aiResponse = completion.choices[0].message.content || '';
+    } catch (aiError) {
+      console.error('OpenAI chat error:', aiError);
+      
+      // Fallback responses
+      const fallbacks = [
+        "Great question! Focus on keeping your core tight and maintaining proper form throughout each movement.",
+        "Remember that consistency is key. Even 15-minute workouts add up over time!",
+        "Listen to your body - rest when needed, but push yourself when you can.",
+        "Form is more important than weight. Master the movement first, then add weight.",
+        "Stay hydrated and fuel your body with good nutrition for better results.",
+        "Progress isn't always linear. Some days are harder than others, and that's okay!",
+        "Try to get 7-9 hours of sleep - that's when your muscles actually grow and recover.",
+        "Warm up properly before workouts to prevent injuries and improve performance."
+      ];
+      
+      aiResponse = fallbacks[Math.floor(Math.random() * fallbacks.length)];
+    }
+
+    // Save chat to database
+    await prisma.chatMessage.create({
+      data: {
+        userId,
+        message,
+        response: aiResponse,
+        context: context || 'general'
+      }
+    });
+
+    res.json({
+      message: aiResponse,
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    console.error('Chat error:', error);
+    res.status(500).json({ error: 'Failed to process chat message' });
+  }
+};
+
+// ==================== FALLBACK ANALYSIS GENERATOR ====================
+function generateFallbackAnalysis(exerciseType: string, currentScore: number): ExerciseAnalysis {
+  const baseScore = Math.min(95, Math.max(65, currentScore + Math.floor(Math.random() * 10) - 5));
+  
+  const exerciseTips: Record<string, Partial<ExerciseAnalysis>> = {
+    squat: {
+      assessment: "Your squat form shows good potential. Focus on maintaining an upright chest and proper knee alignment.",
+      improvements: [
+        "Keep knees aligned with toes throughout the movement",
+        "Maintain a more upright chest position",
+        "Go deeper to achieve parallel or below"
+      ],
+      strengths: [
+        "Good hip drive on ascent",
+        "Controlled descent speed",
+        "Consistent breathing pattern"
+      ],
+      nextTip: "Try box squats to work on depth and form"
+    },
+    bench_press: {
+      assessment: "Solid bench press form with good control. Small adjustments will help you lift more safely.",
+      improvements: [
+        "Keep elbows at 45-degree angle, not flared",
+        "Maintain shoulder blade retraction",
+        "Keep wrists straight, not bent back"
+      ],
+      strengths: [
+        "Good bar path consistency",
+        "Strong leg drive",
+        "Controlled lowering phase"
+      ],
+      nextTip: "Add paused reps at chest to improve power off chest"
+    },
+    deadlift: {
+      assessment: "Good deadlift mechanics overall. Focus on keeping your back tight throughout.",
+      improvements: [
+        "Keep bar closer to shins",
+        "Don't let hips rise before shoulders",
+        "Maintain flat back, avoid rounding"
+      ],
+      strengths: [
+        "Strong lockout position",
+        "Good grip strength",
+        "Proper breathing and bracing"
+      ],
+      nextTip: "Practice deficit deadlifts to improve starting position"
+    },
+    pushup: {
+      assessment: "Good push-up form. Small tweaks will make them more effective.",
+      improvements: [
+        "Keep core tight, don't sag hips",
+        "Lower chest all the way to ground",
+        "Keep elbows closer to body"
+      ],
+      strengths: [
+        "Consistent rhythm",
+        "Good shoulder stability",
+        "Full range of motion"
+      ],
+      nextTip: "Try tempo pushups (3 second down, 1 second up)"
+    },
+    pullup: {
+      assessment: "Solid pull-up strength. Focus on the negative portion for more gains.",
+      improvements: [
+        "Avoid kipping/swinging",
+        "Pull with back, not just arms",
+        "Full extension at bottom"
+      ],
+      strengths: [
+        "Good chin over bar at top",
+        "Strong grip endurance",
+        "Consistent reps"
+      ],
+      nextTip: "Add weighted negatives to build strength"
+    }
+  };
+
+  const defaultTip = {
+    assessment: `Good work on ${exerciseType}! Your form is solid with room for improvement.`,
+    improvements: [
+      "Focus on controlled movement",
+      "Maintain proper breathing",
+      "Keep core engaged throughout"
+    ],
+    strengths: [
+      "Good effort and consistency",
+      "Completed full reps",
+      "Shows good potential"
+    ],
+    nextTip: "Record yourself to check form and track progress"
+  };
+
+  const tip = exerciseTips[exerciseType] || defaultTip;
+
+  return {
+    assessment: tip.assessment || defaultTip.assessment!,
+    improvements: tip.improvements || defaultTip.improvements!,
+    strengths: tip.strengths || defaultTip.strengths!,
+    nextTip: tip.nextTip || defaultTip.nextTip!,
+    formScore: baseScore
+  };
+}

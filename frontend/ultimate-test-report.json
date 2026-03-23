@@ -1,0 +1,268 @@
+{
+  "timestamp": "2026-03-19T09:13:30.721Z",
+  "backend": {
+    "passed": 17,
+    "failed": 0,
+    "tests": [
+      {
+        "name": "Health Check",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.754Z"
+      },
+      {
+        "name": "Login",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.826Z"
+      },
+      {
+        "name": "Get Profile",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.829Z"
+      },
+      {
+        "name": "Get Workouts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.831Z"
+      },
+      {
+        "name": "Get Workout History",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.832Z"
+      },
+      {
+        "name": "Get Workout Stats",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.834Z"
+      },
+      {
+        "name": "Analytics Dashboard",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.837Z"
+      },
+      {
+        "name": "Workout Analytics",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.840Z"
+      },
+      {
+        "name": "Progress Analytics",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.845Z"
+      },
+      {
+        "name": "Achievement Analytics",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.848Z"
+      },
+      {
+        "name": "Streak Analytics",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.851Z"
+      },
+      {
+        "name": "Social Feed",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.852Z"
+      },
+      {
+        "name": "Friends List",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.853Z"
+      },
+      {
+        "name": "Challenges",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.855Z"
+      },
+      {
+        "name": "Daily Nutrition",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.856Z"
+      },
+      {
+        "name": "Meal Plan",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.858Z"
+      },
+      {
+        "name": "Create Workout",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.860Z"
+      }
+    ]
+  },
+  "frontend": {
+    "passed": 12,
+    "failed": 0,
+    "tests": [
+      {
+        "name": "Home/Dashboard",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.864Z"
+      },
+      {
+        "name": "Login Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.867Z"
+      },
+      {
+        "name": "Register Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.871Z"
+      },
+      {
+        "name": "Workout Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.874Z"
+      },
+      {
+        "name": "Analysis Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.878Z"
+      },
+      {
+        "name": "Progress Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.881Z"
+      },
+      {
+        "name": "Nutrition Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.884Z"
+      },
+      {
+        "name": "Social Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.889Z"
+      },
+      {
+        "name": "Profile Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.893Z"
+      },
+      {
+        "name": "Chat Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.897Z"
+      },
+      {
+        "name": "Generator Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.900Z"
+      },
+      {
+        "name": "Test Page",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.904Z"
+      }
+    ]
+  },
+  "features": {
+    "passed": 10,
+    "failed": 0,
+    "warnings": 2,
+    "tests": [
+      {
+        "name": "Component: CameraFeed.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.904Z"
+      },
+      {
+        "name": "Component: PoseOverlay.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.905Z"
+      },
+      {
+        "name": "Component: ErrorBoundary.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.905Z"
+      },
+      {
+        "name": "Component: ProtectedRoute.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.905Z"
+      },
+      {
+        "name": "Context: AuthContext.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.905Z"
+      },
+      {
+        "name": "Context: ToastContext.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.905Z"
+      },
+      {
+        "name": "Context: ThemeContext.tsx",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.906Z"
+      },
+      {
+        "name": "Service: api.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.906Z"
+      },
+      {
+        "name": "Service: auth.ts",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.906Z"
+      },
+      {
+        "name": "Routes Configuration",
+        "status": "PASS",
+        "details": "",
+        "timestamp": "2026-03-19T09:13:30.906Z"
+      },
+      {
+        "name": "Placeholder in Login.tsx",
+        "status": "WARN",
+        "details": "Contains /placeholder/i",
+        "timestamp": "2026-03-19T09:13:30.907Z"
+      },
+      {
+        "name": "Placeholder in Register.tsx",
+        "status": "WARN",
+        "details": "Contains /placeholder/i",
+        "timestamp": "2026-03-19T09:13:30.908Z"
+      }
+    ]
+  }
+}

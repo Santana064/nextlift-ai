@@ -1,0 +1,215 @@
+{
+  "timestamp": "2026-03-19T08:09:03.658Z",
+  "summary": {
+    "passed": 33,
+    "warnings": 1,
+    "failed": 0,
+    "total": 34
+  },
+  "tests": [
+    {
+      "name": "Backend Health Check",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.555Z"
+    },
+    {
+      "name": "Login with demo account",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.627Z"
+    },
+    {
+      "name": "Invalid login rejection",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.631Z"
+    },
+    {
+      "name": "User registration",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.714Z"
+    },
+    {
+      "name": "Get profile with auth",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.718Z"
+    },
+    {
+      "name": "Get all workouts",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.719Z"
+    },
+    {
+      "name": "Get workout history",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.721Z"
+    },
+    {
+      "name": "Get workout stats",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.722Z"
+    },
+    {
+      "name": "Create workout",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.724Z"
+    },
+    {
+      "name": "Analytics dashboard",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.729Z"
+    },
+    {
+      "name": "Workout analytics",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.732Z"
+    },
+    {
+      "name": "Progress analytics",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.736Z"
+    },
+    {
+      "name": "Achievement analytics",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.739Z"
+    },
+    {
+      "name": "Streak analytics",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.742Z"
+    },
+    {
+      "name": "Get user profile",
+      "status": "WARN",
+      "details": "User endpoint may not exist",
+      "timestamp": "2026-03-19T08:09:02.746Z"
+    },
+    {
+      "name": "Get user stats",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.748Z"
+    },
+    {
+      "name": "Get social feed",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.750Z"
+    },
+    {
+      "name": "Get friends",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.751Z"
+    },
+    {
+      "name": "Get challenges",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.752Z"
+    },
+    {
+      "name": "Get daily nutrition",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.754Z"
+    },
+    {
+      "name": "Get meal plan",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.755Z"
+    },
+    {
+      "name": "Frontend: Home/Dashboard",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:02.782Z"
+    },
+    {
+      "name": "Frontend: Login Page",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:03.146Z"
+    },
+    {
+      "name": "Frontend: Register Page",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:03.150Z"
+    },
+    {
+      "name": "Frontend: Workout Page",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:03.175Z"
+    },
+    {
+      "name": "Frontend: Analysis Page",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:03.405Z"
+    },
+    {
+      "name": "Frontend: Progress Page",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:03.612Z"
+    },
+    {
+      "name": "Frontend: Nutrition Page",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:03.625Z"
+    },
+    {
+      "name": "Frontend: Social Page",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:03.634Z"
+    },
+    {
+      "name": "Frontend: Profile Page",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:03.640Z"
+    },
+    {
+      "name": "Frontend: Chat Page",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:03.644Z"
+    },
+    {
+      "name": "Frontend: Generator Page",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:03.647Z"
+    },
+    {
+      "name": "Frontend: Test Page",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:03.651Z"
+    },
+    {
+      "name": "Frontend: 404 Page",
+      "status": "PASS",
+      "details": null,
+      "timestamp": "2026-03-19T08:09:03.654Z"
+    }
+  ]
+}
