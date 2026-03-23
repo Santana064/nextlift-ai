@@ -1,18 +1,16 @@
-{
+﻿{
   "name": "backend",
   "version": "1.0.0",
-  "description": "NEXTLIFT AI Backend",
-  "main": "dist/index.js",
+  "description": "NextLift AI Backend",
+  "main": "dist/server.js",
   "scripts": {
-    "dev": "nodemon src/server.ts",
-    "build": "tsc",
     "start": "node dist/server.js",
+    "build": "tsc",
+    "dev": "nodemon src/server.ts",
+    "prod": "NODE_ENV=production npm run build && npm start",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@prisma/client": "^5.22.0",
     "axios": "^1.13.6",
